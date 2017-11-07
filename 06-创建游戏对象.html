@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#map{
+				width: 800px;
+				height: 600px;
+				background-color: #ccc;
+				margin: 0 auto;
+				position: relative;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src='food2.js'></script>
+		<script src='snake2.js'></script>
+		<script>
+			
+			function Game(map){
+				//把食物和蛇对象挂载到该对象的属性里
+				this.food = new Food();
+				this.snake = new Snake();
+				//还有map
+				this.map =map;
+			}
+			//给游戏原型挂载开始函数
+			Game.prototype.start=function(){
+				//执行食物和蛇的渲染函数
+				this.food.render(this.map);
+				this.snake.render(this.map);
+			}
+			//获取map
+			var map = document.getElementById('map');
+			//实例化食物
+//			var food = new Food();
+//			//调用食物渲染函数
+//			food.render(map);
+//			
+//			//实例化蛇组
+//			//调用蛇渲染函数、
+//			var snake = new Snake();
+//			snake.render(map);
+
+
+         //实例化游戏对象
+         //调用它的构造函数
+         var game = new Game(map);
+         game.start();
+          
+         
+         
+		</script>
+	</body>
+</html>

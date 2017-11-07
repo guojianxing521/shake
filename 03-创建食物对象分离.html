@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#map{
+				width: 800px;
+				height: 600px;
+				background-color: #ccc;
+				margin: 0 auto;
+				position: relative;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src='food2.js'></script>
+		<script>
+			//获取map
+			var map = document.getElementById('map');
+			//实例化食物
+			var food = new Food();
+			//调用食物渲染函数
+			food.render(map);
+		</script>
+	</body>
+</html>

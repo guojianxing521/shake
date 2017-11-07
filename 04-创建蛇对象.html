@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#map{
+				width: 800px;
+				height: 600px;
+				background-color: #ccc;
+				margin: 0 auto;
+				position: relative;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src='food2.js'></script>
+		<script>
+			//创建蛇构造函数
+			//蛇有宽高，朝向，三节（包括位置x和y，还有背景颜色）
+			function Snake(width,height,direction){
+				this.width = width||20,
+				this.height = height||20,
+				this.direction = direction||'right',
+				this.body=[
+				{x:3,y:3,color:'blue'},
+				{x:2,y:3,color:'red'},
+				{x:1,y:3,color:'red'}
+				]
+			}
+			
+			//给蛇对象的原型添加渲染方法
+			Snake.prototype.render= function(map){
+				
+				//创建蛇对象
+//				通过for循环创建三节，也就是三个小盒子
+           for(var i=0;i<this.body.length;i++){
+           	
+           	var oDiv = document.createElement('div');
+           
+            console.log(oDiv);
+            oDiv.style.width = this.width+'px';
+            oDiv.style.height = this.height+'px';
+           	oDiv.style.position = 'absolute';
+           	oDiv.style.left = this.body[i].x*this.width+'px';
+           	oDiv.style.top = this.body[i].y*this.height+'px';
+           	oDiv.style.backgroundColor = this.body[i].color;
+           	
+           	map.appendChild(oDiv);
+           	
+           }
+			}
+			//获取map
+			var map = document.getElementById('map');
+			//实例化食物
+			var food = new Food();
+			//调用食物渲染函数
+			food.render(map);
+			
+			//实例化蛇组
+			//调用蛇渲染函数、
+			var snake = new Snake();
+			snake.render(map);
+		</script>
+	</body>
+</html>

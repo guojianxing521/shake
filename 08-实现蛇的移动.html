@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#map{
+				width: 800px;
+				height: 600px;
+				background-color: #ccc;
+				margin: 0 auto;
+				position: relative;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src='food2.js'></script>
+		<script src='snake2.js'></script>
+		<script src ='game2.js'></script>
+		<script>
+			
+			//获取map
+			var map = document.getElementById('map');
+			//实例化食物
+//			var food = new Food();
+//			//调用食物渲染函数
+//			food.render(map);
+//			
+//			//实例化蛇组
+//			//调用蛇渲染函数、
+//			var snake = new Snake();
+//			snake.render(map);
+
+
+         //实例化游戏对象
+         //调用它的构造函数
+         var game = new Game(map);
+         game.start();
+         //第一件事
+         //蛇移动，思路：给snake.js中蛇原型函数上添加蛇移动函数move，最后重新渲染
+         //渲染之前在渲染函数中调用移除原来的蛇组
+         //设置一个数组存渲染生成的旧蛇组，以便于对原来的蛇组进行删除操作，最后要清空数组
+         //切记要添加定时器，调用move函数，在game2中的start中。
+         //第二件事
+         //添加键盘事件，在game里面添加函数，键盘事件，在start中调用
+         //第三件事
+         //碰到食物之后，生成新的食物，并且给蛇组加1，snake中的move函数中,并且移除原来的食物。
+         //第四件事
+         //定时器中，判断是否撞墙，游戏结束。
+		</script>
+	</body>
+</html>
